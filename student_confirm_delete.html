@@ -1,0 +1,81 @@
+<!-- students/templates/students/student_confirm_delete.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Delete</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+        }
+
+        button {
+            background-color: #dc3545;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        button:hover {
+            background-color: #c82333;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Confirm Delete</h1>
+        <p>Are you sure you want to delete the student '{{ object }}'?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Confirm</button>
+        </form>
+        <a href="{% url 'student_list' %}">Cancel</a>
+    </div>
+</body>
+</html>
